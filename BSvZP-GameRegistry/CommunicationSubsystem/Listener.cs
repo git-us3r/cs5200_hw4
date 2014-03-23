@@ -14,23 +14,23 @@ namespace CommunicationSubsystem
         public Conversations conversations { get; set; }
         public MessageQ requests { get; set; }
         public Communicator communicator { get; set; }
-        public int port { get; set; }
+        //public int port { get; set; }
 
-        // Since we don't know yet how to handle the queues, It will have its own for now.
-        public Listener()
+        // The listener must have the following associations: (1) comm, (2) messageQ
+        //// Since we don't know yet how to handle the queues, It will have its own for now.
+        //public Listener()
+        //{
+        //    communicator = new Communicator();
+        //    conversations = new Conversations();
+        //    requests = new MessageQ("RQ");
+        //}
+
+
+        public Listener(ref Communicator comm, ref MessageQ _requests, ref Conversations _conversations)
         {
-            communicator = new Communicator();
-            conversations = new Conversations();
-            requests = new MessageQ("RQ");
-        }
-
-
-        public Listener(int _port)
-        {
-            port = _port;
-            communicator = new Communicator(port);
-            conversations = new Conversations();
-            requests = new MessageQ("RQ");
+            communicator = comm;
+            conversations = _conversations;
+            requests = _requests;
         }
 
 
@@ -41,6 +41,7 @@ namespace CommunicationSubsystem
             {
                 // if match place in requests
                 requests.addMessage(_env);
+                //conversations.
             }
             else if (conversations.hasMessageQ(_env.msg.ConversationId))
             {
