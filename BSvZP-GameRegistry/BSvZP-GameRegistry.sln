@@ -12,11 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebserviceClient", "S
 		{7E9CFCBE-3D2C-42A5-96F6-4343E92E1F02} = {7E9CFCBE-3D2C-42A5-96F6-4343E92E1F02}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrilliantStudent", "BrilliantStudent\BrilliantStudent.csproj", "{9995501E-DADC-4572-AAD9-32F00C3746A8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcuseGenerator", "ExcuseGenerator\ExcuseGenerator.csproj", "{A0AF48B6-E6CE-4560-A34B-C9D774C7F9A6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiningSpinner", "WhiningSpinner\WhiningSpinner.csproj", "{179397D0-BB1A-4E61-A8A3-6E8949F4F52E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agents", "BrilliantStudent\Agents.csproj", "{9995501E-DADC-4572-AAD9-32F00C3746A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListenerTest_sender", "ListenerTest_sender\ListenerTest_sender.csproj", "{DA19B917-1AEA-493E-9F91-A977D670BC6D}"
 EndProject
@@ -56,14 +52,6 @@ Global
 		{9995501E-DADC-4572-AAD9-32F00C3746A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9995501E-DADC-4572-AAD9-32F00C3746A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9995501E-DADC-4572-AAD9-32F00C3746A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0AF48B6-E6CE-4560-A34B-C9D774C7F9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0AF48B6-E6CE-4560-A34B-C9D774C7F9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0AF48B6-E6CE-4560-A34B-C9D774C7F9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0AF48B6-E6CE-4560-A34B-C9D774C7F9A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{179397D0-BB1A-4E61-A8A3-6E8949F4F52E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{179397D0-BB1A-4E61-A8A3-6E8949F4F52E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{179397D0-BB1A-4E61-A8A3-6E8949F4F52E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{179397D0-BB1A-4E61-A8A3-6E8949F4F52E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA19B917-1AEA-493E-9F91-A977D670BC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA19B917-1AEA-493E-9F91-A977D670BC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA19B917-1AEA-493E-9F91-A977D670BC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU

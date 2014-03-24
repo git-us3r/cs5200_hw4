@@ -4,10 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BrilliantStudent
+namespace Agents
 {
-    public class BrilliantStudent
+    public class BrilliantStudent : Agent
     {
+
+        // implement IObserver
+        public override void OnCompleted() { }
+        public override void OnError(Exception e) { }
+        public override void OnNext(object data) { }
+
+        // A Brilliant Student agent acts on its own to a) move around the playing field, 
+        // b) gather excuses, c) gather whining twine, d) build bombs, and e) destroy zombies. 
+
 
         // properties
         // Strength Points
@@ -36,8 +45,5 @@ namespace BrilliantStudent
         // heal
         // send data
 
-        static void Main(string[] args)
-        {
-        }
     }
 }

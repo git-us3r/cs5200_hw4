@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Strategy;
+
 namespace CommunicationSubsystem
 {
     public class Doer : BackgroundThread
     {
-        private ExecutionStrategy eStrat;
+        private ConversationExecutionStrategy eStrat;
         private MessageQ requests;
         private Conversations conversations;
 
-        public Doer(ref ExecutionStrategy _eStrat, ref MessageQ _requests, ref Conversations _conversations)
+        public Doer(ref ConversationExecutionStrategy _eStrat, ref MessageQ _requests, ref Conversations _conversations)
         {
             eStrat = _eStrat;
             requests = _requests;

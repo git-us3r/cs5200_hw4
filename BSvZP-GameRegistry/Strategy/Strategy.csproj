@@ -57,18 +57,6 @@
       <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BrilliantStudent\BrilliantStudent.csproj">
-      <Project>{9995501e-dadc-4572-aad9-32f00c3746a8}</Project>
-      <Name>BrilliantStudent</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommunicationSubsystem\CommunicationSubsystem.csproj">
-      <Project>{8d9bef97-f410-4055-bf0c-2400f47fc921}</Project>
-      <Name>CommunicationSubsystem</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExcuseGenerator\ExcuseGenerator.csproj">
-      <Project>{a0af48b6-e6ce-4560-a34b-c9d774c7f9a6}</Project>
-      <Name>ExcuseGenerator</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GameRegistry\GameRegistry.csproj">
       <Project>{7e9cfcbe-3d2c-42a5-96f6-4343e92e1f02}</Project>
       <Name>GameRegistry</Name>

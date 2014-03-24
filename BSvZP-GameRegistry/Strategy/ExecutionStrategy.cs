@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommunicationSubsystem;
 
 namespace Strategy
 {
@@ -11,9 +10,8 @@ namespace Strategy
     public abstract class ConversationExecutionStrategy : IObservable<object>
     {
         // Default CTOR
-        public abstract ConversationExecutionStrategy();
 
-        
+        public abstract void process(object data);
 
         // Common methods for all agents
         public abstract void startNewGame(object data);

@@ -8,7 +8,8 @@ namespace Strategy
 {
     public class ConversationStrategyFactory
     {
-        public static enum agentType { BrilliantStudent, ExcuseGenerator, TwineSpinner };
+        // enums are static by default (.. a  type .. ?)
+        public enum agentType { BrilliantStudent, ExcuseGenerator, TwineSpinner };
 
         public ConversationStrategyFactory() { }
 
