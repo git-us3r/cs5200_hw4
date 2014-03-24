@@ -13,8 +13,13 @@ namespace BrilliantStudent
         // Strength Points
         // Sidewalk Speed Factor
         // Grass speed factor
+        // brain
+        // GameExecutionStrategy
 
-        // functions
+
+        // functions : this are the functions that need to be implemented
+        // in the corresponding execution strategy
+
         // ask game for parameters
         // ask game for playing field
         // ask game for layout

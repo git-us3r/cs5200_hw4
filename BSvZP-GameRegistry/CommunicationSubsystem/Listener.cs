@@ -11,9 +11,9 @@ namespace CommunicationSubsystem
     public class Listener : BackgroundThread
     {
         // *** This is likely to change .. when we figure how to discover queues.
-        public Conversations conversations { get; set; }
-        public MessageQ requests { get; set; }
-        public Communicator communicator { get; set; }
+        private Conversations conversations;
+        private MessageQ requests;
+        private Communicator communicator;
         //public int port { get; set; }
 
         // The listener must have the following associations: (1) comm, (2) messageQ

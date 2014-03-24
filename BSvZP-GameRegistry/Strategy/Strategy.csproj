@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D9BEF97-F410-4055-BF0C-2400F47FC921}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{B3EDC842-34E6-4BDB-9EFF-BE3EF267749B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommunicationSubsystem</RootNamespace>
-    <AssemblyName>CommunicationSubsystem</AssemblyName>
+    <RootNamespace>Strategy</RootNamespace>
+    <AssemblyName>Strategy</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,7 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,20 +41,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundThread.cs" />
-    <Compile Include="Communicator.cs" />
-    <Compile Include="Conversations.cs" />
-    <Compile Include="Doer.cs" />
-    <Compile Include="MainParamParser.cs" />
-    <Compile Include="MessageQ.cs" />
-    <Compile Include="Envelop.cs" />
-    <Compile Include="Listener.cs" />
+    <Compile Include="ConversationExecutionStrategy_BrilliantStudent.cs" />
+    <Compile Include="ConversationExecutionStrategy_ExcuseGenerator.cs" />
+    <Compile Include="ConversationExecutionStrategy_TwineSpinner.cs" />
+    <Compile Include="ConversationStrategyFactory.cs" />
+    <Compile Include="ExecutionStrategy.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BSvZP-Common\Common\Common.csproj">
       <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BrilliantStudent\BrilliantStudent.csproj">
+      <Project>{9995501e-dadc-4572-aad9-32f00c3746a8}</Project>
+      <Name>BrilliantStudent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunicationSubsystem\CommunicationSubsystem.csproj">
+      <Project>{8d9bef97-f410-4055-bf0c-2400f47fc921}</Project>
+      <Name>CommunicationSubsystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcuseGenerator\ExcuseGenerator.csproj">
+      <Project>{a0af48b6-e6ce-4560-a34b-c9d774c7f9a6}</Project>
+      <Name>ExcuseGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameRegistry\GameRegistry.csproj">
+      <Project>{7e9cfcbe-3d2c-42a5-96f6-4343e92e1f02}</Project>
+      <Name>GameRegistry</Name>
     </ProjectReference>
     <ProjectReference Include="..\Messages\Messages.csproj">
       <Project>{126de25a-fb1f-4e0b-9ba3-7072656706b6}</Project>
