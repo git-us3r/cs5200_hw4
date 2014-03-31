@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9995501E-DADC-4572-AAD9-32F00C3746A8}</ProjectGuid>
+    <ProjectGuid>{179397D0-BB1A-4E61-A8A3-6E8949F4F52E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BrilliantStudent</RootNamespace>
-    <AssemblyName>BrilliantStudent</AssemblyName>
+    <RootNamespace>WhiningSpinner</RootNamespace>
+    <AssemblyName>WhiningSpinner</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrilliantStudent.cs" />
+    <Compile Include="WhiningSpinner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

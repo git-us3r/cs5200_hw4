@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0AF48B6-E6CE-4560-A34B-C9D774C7F9A6}</ProjectGuid>
+    <ProjectGuid>{00CA3011-9394-402E-BA1D-F70409F00128}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExcuseGenerator</RootNamespace>
-    <AssemblyName>ExcuseGenerator</AssemblyName>
+    <RootNamespace>DebuggingSpace</RootNamespace>
+    <AssemblyName>DebuggingSpace</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,11 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcuseGenerator.cs" />
+    <Compile Include="DebugginSpace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunicationSubsystem\CommunicationSubsystem.csproj">
+      <Project>{8d9bef97-f410-4055-bf0c-2400f47fc921}</Project>
+      <Name>CommunicationSubsystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Messages\Messages.csproj">
+      <Project>{126de25a-fb1f-4e0b-9ba3-7072656706b6}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
