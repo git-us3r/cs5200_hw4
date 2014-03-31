@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Strategy
 {
-    public class ConversationExecutionStrategy_BrilliantStudent : ConversationExecutionStrategy
+    class ConversationExecutionStrategy_ExcuseGenerator : ConversationExecutionStrategy
     {
         public override void process(object data) { }
 

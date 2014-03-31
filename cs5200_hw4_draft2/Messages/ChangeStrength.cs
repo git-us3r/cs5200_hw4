@@ -6,47 +6,42 @@ using Common;
 
 namespace Messages
 {
-    public class JoinGame : Request
+    public class ChangeStrength : Request
     {
         #region Private Properties
-        private static Int16 ClassId { get { return (Int16)MESSAGE_CLASS_IDS.JoinGame; } }
+        private static Int16 ClassId { get { return (Int16)MESSAGE_CLASS_IDS.ChangeStrength; } }
         #endregion
 
         #region Public Properties
         public override Message.MESSAGE_CLASS_IDS MessageTypeId() { return (Message.MESSAGE_CLASS_IDS)ClassId; }
 
-        public Int16 GameId { get; set; }
-        public AgentInfo AgentInfo { get; set; }
+        public Int16 DeltaValue { get; set; }
         public static new int MinimumEncodingLength
         {
             get
             {
                 return 4                // Object header
-                       + 2              // ANumber
-                       + 2              // FirstName
-                       + 2              // LastName
-                       + 1;
+                       + 2;             // Delta Value
             }
         }
         #endregion
-
+        
         #region Constructors and Factories
 
         /// <summary>
         /// Constructor used by factory methods, which is in turn used by the receiver of a message
         /// </summary>
-        public JoinGame() : base(PossibleTypes.JoinGame) { }
+        public ChangeStrength() : base(PossibleTypes.ChangeStrength) { }
 
         /// <summary>
         /// Constructor used by senders of a message
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
-        public JoinGame(Int16 gameId, AgentInfo agentInfo)
-            : base(PossibleTypes.JoinGame)
+        public ChangeStrength(Int16 deltaValue)
+            : base(PossibleTypes.ChangeStrength)
         {
-            GameId = gameId;
-            AgentInfo = agentInfo;
+            DeltaValue = deltaValue;
         }
 
         /// <summary>
@@ -54,9 +49,9 @@ namespace Messages
         /// </summary>
         /// <param name="messageBytes">A byte list from which the message will be decoded</param>
         /// <returns>A new message of the right specialization</returns>
-        new public static JoinGame Create(ByteList messageBytes)
+        new public static ChangeStrength Create(ByteList messageBytes)
         {
-            JoinGame result = null;
+            ChangeStrength result = null;
 
             if (messageBytes == null || messageBytes.RemainingToRead < MinimumEncodingLength)
                 throw new ApplicationException("Invalid message byte array");
@@ -64,7 +59,7 @@ namespace Messages
                 throw new ApplicationException("Invalid message class id");
             else
             {
-                result = new JoinGame();
+                result = new ChangeStrength();
                 result.Decode(messageBytes);
             }
 
@@ -86,7 +81,8 @@ namespace Messages
 
             base.Encode(bytes);                              // Encode the part of the object defined
                                                                     // by the base class
-            bytes.AddObjects(GameId, AgentInfo);  
+
+            bytes.Add(DeltaValue);  
 
             Int16 length = Convert.ToInt16(bytes.CurrentWritePosition - lengthPos - 2);
             bytes.WriteInt16To(lengthPos, length);           // Write out the length of this object        
@@ -102,12 +98,12 @@ namespace Messages
 
             base.Decode(bytes);
 
-            GameId = bytes.GetInt16();
-            AgentInfo = bytes.GetDistributableObject() as AgentInfo;
+            DeltaValue = bytes.GetInt16();
 
             bytes.RestorePreviosReadLimit();
         }
 
         #endregion
+
     }
 }

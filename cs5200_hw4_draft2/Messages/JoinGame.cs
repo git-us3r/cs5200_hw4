@@ -4,44 +4,52 @@ using System.Linq;
 using System.Text;
 using Common;
 
+using log4net;
+
 namespace Messages
 {
-    class ChangeStrength : Request
+    public class JoinGame : Request
     {
         #region Private Properties
-        private static Int16 ClassId { get { return (Int16)MESSAGE_CLASS_IDS.ChangeStrength; } }
+        private static readonly ILog log = LogManager.GetLogger(typeof(JoinGame));
+        private static Int16 ClassId { get { return (Int16)MESSAGE_CLASS_IDS.JoinGame; } }
         #endregion
 
         #region Public Properties
         public override Message.MESSAGE_CLASS_IDS MessageTypeId() { return (Message.MESSAGE_CLASS_IDS)ClassId; }
 
-        public Int16 DeltaValue { get; set; }
+        public Int16 GameId { get; set; }
+        public AgentInfo AgentInfo { get; set; }
         public static new int MinimumEncodingLength
         {
             get
             {
                 return 4                // Object header
-                       + 2;             // Delta Value
+                       + 2              // ANumber
+                       + 2              // FirstName
+                       + 2              // LastName
+                       + 1;
             }
         }
         #endregion
-        
+
         #region Constructors and Factories
 
         /// <summary>
         /// Constructor used by factory methods, which is in turn used by the receiver of a message
         /// </summary>
-        public ChangeStrength() : base(PossibleTypes.ChangeStrength) { }
+        public JoinGame() : base(PossibleTypes.JoinGame) { }
 
         /// <summary>
         /// Constructor used by senders of a message
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
-        public ChangeStrength(Int16 deltaValue)
-            : base(PossibleTypes.ChangeStrength)
+        public JoinGame(Int16 gameId, AgentInfo agentInfo)
+            : base(PossibleTypes.JoinGame)
         {
-            DeltaValue = deltaValue;
+            GameId = gameId;
+            AgentInfo = agentInfo;
         }
 
         /// <summary>
@@ -49,9 +57,9 @@ namespace Messages
         /// </summary>
         /// <param name="messageBytes">A byte list from which the message will be decoded</param>
         /// <returns>A new message of the right specialization</returns>
-        new public static ChangeStrength Create(ByteList messageBytes)
+        new public static JoinGame Create(ByteList messageBytes)
         {
-            ChangeStrength result = null;
+            JoinGame result = null;
 
             if (messageBytes == null || messageBytes.RemainingToRead < MinimumEncodingLength)
                 throw new ApplicationException("Invalid message byte array");
@@ -59,7 +67,7 @@ namespace Messages
                 throw new ApplicationException("Invalid message class id");
             else
             {
-                result = new ChangeStrength();
+                result = new JoinGame();
                 result.Decode(messageBytes);
             }
 
@@ -81,8 +89,7 @@ namespace Messages
 
             base.Encode(bytes);                              // Encode the part of the object defined
                                                                     // by the base class
-
-            bytes.Add(DeltaValue);  
+            bytes.AddObjects(GameId, AgentInfo);  
 
             Int16 length = Convert.ToInt16(bytes.CurrentWritePosition - lengthPos - 2);
             bytes.WriteInt16To(lengthPos, length);           // Write out the length of this object        
@@ -90,20 +97,24 @@ namespace Messages
 
         override public void Decode(ByteList bytes)
         {
-
+            log.Debug("Decoding JoinGame");
             Int16 objType = bytes.GetInt16();
             Int16 objLength = bytes.GetInt16();
-
+            log.DebugFormat("objType={0}, objLength={1}", objType, objLength); 
+           
             bytes.SetNewReadLimit(objLength);
 
             base.Decode(bytes);
 
-            DeltaValue = bytes.GetInt16();
+            GameId = bytes.GetInt16();
+            log.DebugFormat("GameId={0}", GameId);
+            AgentInfo = bytes.GetDistributableObject() as AgentInfo;
+            log.DebugFormat("AgentInfo.AgentType={1}, ANumber={2}, FirstName={3}, LastName={3}", AgentInfo.AgentType, AgentInfo.ANumber, AgentInfo.FirstName, AgentInfo.LastName);
 
             bytes.RestorePreviosReadLimit();
+            log.DebugFormat("Decoding of JoinGame Complete");
         }
 
         #endregion
-
     }
 }
